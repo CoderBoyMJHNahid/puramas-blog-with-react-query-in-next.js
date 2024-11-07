@@ -4,7 +4,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header id="header">
+    <header id="header" className="absolute w-full">
       <nav className="container m-auto">
         <div className="flex items-center justify-center py-6">
           <div className="logo_wrapper w-2/6">
@@ -17,7 +17,7 @@ const Header = () => {
             />
           </div>
           <div className="menu_wrapper w-4/6">
-            <ul className="uppercase flex items-center justify-center gap-9">
+            <ul className="uppercase flex items-center text-white font-bold justify-center gap-9">
               <li>
                 <Link href={`/`}>Inicio</Link>
               </li>
