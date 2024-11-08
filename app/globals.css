@@ -25,46 +25,73 @@ body {
     linear-gradient(#00000025, #00000025), url("/hero-section.webp");
   background-size: cover;
   background-position: center;
-  &::after{
-    content: '';
-      position: absolute;
-      bottom: 0;
-      height: 100px;
-      width: 100%;
-      background: url("/header-mask-new.png") no-repeat center;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      background-size: cover;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: url("/header-mask-new.png") no-repeat center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-size: cover;
   }
 }
 .mouse {
-	width: 30px;
-	height: 46px;
-	border: 2px solid white;
-	border-radius: 60px;
-	position: relative;
-	&::before {
-		content: '';
-		width: 5px;
-		height: 5px;
-		position: absolute;
-		top: 10px;
-		left: 50%;
-		transform: translateX(-50%);
-		background-color: white;
-		border-radius: 50%;
-		opacity: 1;
-		animation: wheel 2s infinite;
-		-webkit-animation: wheel 2s infinite;
-	}
+  width: 30px;
+  height: 46px;
+  border: 2px solid white;
+  border-radius: 60px;
+  position: relative;
+  &::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 50%;
+    opacity: 1;
+    animation: wheel 2s infinite;
+    -webkit-animation: wheel 2s infinite;
+  }
+}
+.promo_card_wrapper:hover .overlay{
+  transform: scaleY(1);
+  opacity: 1;
+}
+.overlay {
+  transform-origin: bottom;
+  transform: scaleY(0.8);
+  opacity: 0;
+  transition: all 0.3s;
+  span {
+    animation: scaler 1s infinite;
+    transition: all 0.3s;
+  }
+}
+
+@keyframes scaler {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
 }
 
 @keyframes wheel {
-	to {
-		opacity: 0;
-		top: 40px;
-	}
+  to {
+    opacity: 0;
+    top: 40px;
+  }
 }
-
-
