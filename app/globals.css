@@ -59,7 +59,7 @@ body {
     -webkit-animation: wheel 2s infinite;
   }
 }
-.promo_card_wrapper:hover .overlay{
+.promo_card_wrapper:hover .overlay {
   transform: scaleY(1);
   opacity: 1;
 }
@@ -72,6 +72,14 @@ body {
     animation: scaler 1s infinite;
     transition: all 0.3s;
   }
+}
+
+.swiper-button-prev {
+  color: white !important;
+}
+
+.swiper-button-next {
+  color: white !important;
 }
 
 @keyframes scaler {
