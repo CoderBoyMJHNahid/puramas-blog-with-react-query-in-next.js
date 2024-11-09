@@ -1,6 +1,7 @@
 import React from "react";
 import TitleWrapper from "./TitleWrapper";
 import PromoCard from "./PromoCard";
+import { PromoData } from "../data/PromoData";
 
 const Promo = () => {
   return (
@@ -12,13 +13,17 @@ const Promo = () => {
           secondLine="Nuestros lanzamientos recientes demuestran nuestra clara superioridad técnica y funcional:"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-8">
-            <PromoCard image={`/todo.webp`} link={`https://www.ventas.puramas.co/`}/>
-            <PromoCard image={`/ventas.webp`} link={`https://www.ventas.puramas.co/index.php?action=top-venta`}/>
-            <PromoCard image={`/news.webp`} link={`https://www.ventas.puramas.co/index.php?action=new`}/>
-            <PromoCard image={`/promo.webp`} link={`https://www.ventas.puramas.co/index.php?action=promo`}/>
+        <div className="grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-8">
+          {PromoData.map((elem, index) => {
+            return (
+              <PromoCard
+                key={index}
+                image={elem.image}
+                link={elem.link}
+              />
+            );
+          })}
         </div>
-
       </div>
     </section>
   );

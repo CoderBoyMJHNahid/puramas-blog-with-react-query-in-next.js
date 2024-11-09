@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  font-family: var(--font-montserrat-sans), sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,7 +18,8 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat-sans), sans-serif;
+  letter-spacing: 1.2;
 }
 
 #hero-section {
@@ -81,6 +83,22 @@ body {
 .swiper-button-next {
   color: white !important;
 }
+
+#count_wrapper {
+  background: linear-gradient(#00000075, #00000075),
+    linear-gradient(#00000075, #00000075), url("/count.webp");
+  background-size: cover;
+  background-position: 50% 0;
+}
+#catalog_wrapper {
+  background: linear-gradient(#00000075, #00000075),
+    linear-gradient(#00000075, #00000075), url("/count.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 @media only screen and (min-width: 1180px) {
   .container {
     max-width: 1180px !important;

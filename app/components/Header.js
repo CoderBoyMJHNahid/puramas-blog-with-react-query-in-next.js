@@ -13,7 +13,6 @@ const Header = () => {
               width={150}
               height={45}
               alt="Logo Image"
-              className="m-auto"
             />
           </div>
           <div className="menu_wrapper w-4/6">

@@ -14,13 +14,13 @@ const HeroSection = () => {
       </h1>
       <TypingText />
       <div className="icon_wrapper flex items-center gap-6 my-8">
-        <span className="bg-[#00359f] w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
+        <span className="bg-[#00359f] shadow-xl cursor-pointer hover:bg-[#ffd966] transition-all duration-75 w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
           <FaNewspaper className="text-white text-5xl" />
         </span>
-        <span className="bg-[#00359f] w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
+        <span className="bg-[#00359f] shadow-xl cursor-pointer hover:bg-[#ffd966] transition-all duration-75 w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
           <FaShoppingBasket className="text-white text-5xl" />
         </span>
-        <span className="bg-[#00359f] w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
+        <span className="bg-[#00359f] shadow-xl cursor-pointer hover:bg-[#ffd966] transition-all duration-75 w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
           <FaWhatsapp className="text-white text-5xl" />
         </span>
       </div>
