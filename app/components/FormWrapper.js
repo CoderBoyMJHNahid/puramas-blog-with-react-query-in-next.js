@@ -16,7 +16,7 @@ import Form from "./Form";
 const FormWrapper = () => {
   return (
     <>
-      <section>
+      <section id="contacto">
         <div className="container m-auto py-8">
           <TitleWrapper
             title={`Hablemos!`}
@@ -25,7 +25,7 @@ const FormWrapper = () => {
             thirdLine={`¿Sabias que somos la marca de ortopedía más activa y popular del mundo?`}
           />
           <div className="flex gap-10 justify-between my-8">
-            <div className="text-center">
+            <div className="text-center animate__animated animate__fadeInRight animate__delay-1s">
               <Image
                 src={`/pura.webp`}
                 alt="Pura+ office image"
@@ -107,7 +107,7 @@ const FormWrapper = () => {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="animate__animated animate__fadeInLeft animate__delay-1s">
               <Form />
             </div>
           </div>

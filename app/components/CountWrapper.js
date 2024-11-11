@@ -2,7 +2,7 @@ import React from 'react'
 
 const CountWrapper = () => {
   return (
-    <section id="count_wrapper" className='mt-3'>
+    <section id="count_wrapper" className='mt-3 animate__animated animate__fadeInUp'>
       <div className="container m-auto">
         <div className="grid py-14 text-white text-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div>

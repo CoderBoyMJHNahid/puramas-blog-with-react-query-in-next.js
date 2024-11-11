@@ -31,7 +31,7 @@ const HeroSection = () => {
         </Link>
       </div>
       <div className="animation_wrapper absolute bottom-16">
-        <div className="mouse"></div>
+        <div className="mouse animate__animated animate__bounceInUp"></div>
       </div>
     </section>
   );

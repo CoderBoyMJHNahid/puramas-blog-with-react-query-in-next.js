@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Catalog = () => {
   return (
     <section
-      id="catalog_wrapper"
+      id="catalog"
       className="py-8"
     >
       <div className="container m-auto text-center text-white">
@@ -18,13 +19,15 @@ const Catalog = () => {
         <p className="font-light text-sm">
           "Inspiration and perspiration is our motto"
         </p>
-        <Image
-          src={`/catalogo.webp`}
-          alt="Catalog Photo"
-          width={400}
-          height={283}
-          className="m-auto mt-7"
-        />
+        <Link href={`https://catalogo.puramas.co/`} target="_blank">
+          <Image
+            src={`/catalogo.webp`}
+            alt="Catalog Photo"
+            width={400}
+            height={283}
+            className="m-auto mt-7"
+          />
+        </Link>
       </div>
     </section>
   );

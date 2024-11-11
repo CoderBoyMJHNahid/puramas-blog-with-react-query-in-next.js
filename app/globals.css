@@ -19,9 +19,28 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-montserrat-sans), sans-serif;
-  letter-spacing: 1.2;
 }
-
+html {
+  scroll-behavior: smooth !important;
+}
+#empresa,
+#shop,
+#contacto {
+  padding-top: 115px;
+  margin-top: -70px;
+}
+.scrolled-header {
+  background-color: rgba(30, 30, 30, 0.85);
+  border-bottom: 1px solid #262626;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  visibility: visible;
+  display: block;
+  transition: all 0.5s;
+}
 #hero-section {
   background-image: linear-gradient(#00000025, #00000025),
     linear-gradient(#00000025, #00000025), url("/hero-section.webp");
@@ -90,7 +109,7 @@ body {
   background-size: cover;
   background-position: 50% 0;
 }
-#catalog_wrapper {
+#catalog {
   background: linear-gradient(#00000075, #00000075),
     linear-gradient(#00000075, #00000075), url("/count.webp");
   background-position: center;

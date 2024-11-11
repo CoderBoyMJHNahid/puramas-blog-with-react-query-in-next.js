@@ -5,7 +5,7 @@ import { PromoData } from "../data/PromoData";
 
 const Promo = () => {
   return (
-    <section className="py-8">
+    <section className="py-8" id="shop">
       <div className="container m-auto">
         <TitleWrapper
           title="La marca líder del 2024"
@@ -18,6 +18,7 @@ const Promo = () => {
             return (
               <PromoCard
                 key={index}
+                number={index}
                 image={elem.image}
                 link={elem.link}
               />
