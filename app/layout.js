@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import "intl-tel-input/styles";
 
 const montserratSans = localFont({
   src: "./fonts/Montserrat.ttf",

@@ -3,6 +3,7 @@ import TypingText from "./TypingText";
 import { FaNewspaper } from "react-icons/fa6";
 import { FaShoppingBasket } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
 const HeroSection = () => {
   return (
     <section
@@ -17,12 +18,17 @@ const HeroSection = () => {
         <span className="bg-[#00359f] shadow-xl cursor-pointer hover:bg-[#ffd966] transition-all duration-75 w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
           <FaNewspaper className="text-white text-5xl" />
         </span>
-        <span className="bg-[#00359f] shadow-xl cursor-pointer hover:bg-[#ffd966] transition-all duration-75 w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
-          <FaShoppingBasket className="text-white text-5xl" />
-        </span>
-        <span className="bg-[#00359f] shadow-xl cursor-pointer hover:bg-[#ffd966] transition-all duration-75 w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
-          <FaWhatsapp className="text-white text-5xl" />
-        </span>
+
+        <Link href={`https://shop.puramas.co/`}>
+          <span className="bg-[#00359f] shadow-xl cursor-pointer hover:bg-[#ffd966] transition-all duration-75 w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
+            <FaShoppingBasket className="text-white text-5xl" />
+          </span>
+        </Link>
+        <Link href={`https://whatsapp.puramas.co/`}>
+          <span className="bg-[#00359f] shadow-xl cursor-pointer hover:bg-[#ffd966] transition-all duration-75 w-[80px] h-[80px] p-[10px] flex items-center justify-center rounded-full">
+            <FaWhatsapp className="text-white text-5xl" />
+          </span>
+        </Link>
       </div>
       <div className="animation_wrapper absolute bottom-16">
         <div className="mouse"></div>

@@ -98,7 +98,40 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+input.iti__tel-input {
+  width: 100% !important;
+}
+.iti.iti--allow-dropdown.iti--show-flags.iti--inline-dropdown {
+  width: 100%;
+}
+.mail_form input:focus,
+.mail_form textarea:focus {
+  outline: none;
+  background: transparent !important;
+  color: #fff;
+  border-color: #ffd966 !important;
+  border-width: 0 0 1px 0;
+  box-shadow: none !important;
+  transition: all 0.3s ease-in-out !important;
+}
 
+.mail_form input,
+.mail_form textarea {
+  margin: 10px 0px;
+  /* margin-top: 4px !important; */
+  box-shadow: none !important;
+  width: 100%;
+  max-width: 100%;
+  background: transparent !important;
+  color: #fff;
+  border-color: hsla(0, 0%, 100%, 0.15) !important;
+  border-width: 0 0 1px 0;
+  line-height: 1em;
+  min-height: 31px;
+  margin-bottom: 15px;
+  border-radius: 0px;
+  font-family: var(--font-montserrat-sans);
+}
 @media only screen and (min-width: 1180px) {
   .container {
     max-width: 1180px !important;

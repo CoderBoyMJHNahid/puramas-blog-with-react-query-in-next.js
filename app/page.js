@@ -7,6 +7,9 @@ import CountWrapper from "./components/CountWrapper";
 import Catalog from "./components/Catalog";
 import Posts from "./components/Posts";
 import PlaceLoc from "./components/PlaceLoc";
+import GroupWrapper from "./components/GroupWrapper";
+import FormWrapper from "./components/FormWrapper";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -20,6 +23,9 @@ export default function Home() {
         <Posts />
         <Catalog />
         <PlaceLoc />
+        <GroupWrapper />
+        <FormWrapper />
+        <Footer />
       </main>
     </>
   );
