@@ -10,6 +10,7 @@ import PlaceLoc from "./components/PlaceLoc";
 import GroupWrapper from "./components/GroupWrapper";
 import FormWrapper from "./components/FormWrapper";
 import Footer from "./components/Footer";
+import ContactOut from "./components/ContactOut";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         <GroupWrapper />
         <FormWrapper />
         <Footer />
+        <ContactOut />
       </main>
     </>
   );
