@@ -1,6 +1,7 @@
 "use client";
+import dynamic from "next/dynamic";
 import { FaEnvelope } from "react-icons/fa";
-import IntlTelInput from "intl-tel-input/reactWithUtils";
+const IntlTelInput = dynamic(() => import("intl-tel-input/reactWithUtils"), { ssr: false });
 const Form = () => {
   return (
     <div className="bg-black px-20 py-10 w-full md:w-[500px]">

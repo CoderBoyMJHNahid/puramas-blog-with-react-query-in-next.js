@@ -1,7 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import "intl-tel-input/styles";
-import 'animate.css';
+import "animate.css";
+import Provider from "./service/Provider";
 
 const montserratSans = localFont({
   src: "./fonts/Montserrat.ttf",
@@ -16,17 +17,20 @@ const montserratMono = localFont({
 
 export const metadata = {
   title: "Pura+ | Ortopedia Fisioterapia Salud Belleza",
-  description: "ortopedia cuidado pie rehabilitacion fitness medias varices salud belleza",
+  description:
+    "ortopedia cuidado pie rehabilitacion fitness medias varices salud belleza",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${montserratSans.variable} ${montserratMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <Provider>
+      <html lang="en">
+        <body
+          className={`${montserratSans.variable} ${montserratMono.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </html>
+    </Provider>
   );
 }
