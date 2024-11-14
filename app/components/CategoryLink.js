@@ -6,7 +6,9 @@ import Link from "next/link";
 const CategoryLink = ({ setFn, totalNumber }) => {
   const fetchCategory = async () => {
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_CATEGORY_URL);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_POST_URL}/api/category/site/${process.env.NEXT_PUBLIC_SITE_ID}`
+      );
       const data = await response.json();
       return data;
     } catch (error) {
@@ -24,17 +26,20 @@ const CategoryLink = ({ setFn, totalNumber }) => {
   return (
     <div className="my-4">
       <ul>
-        <li className="inline-block ml-4 my-2">
-          <button
-            onClick={() => setFn(null)}
-            className="rounded"
-          >
-            <span className="bg-[#c8d3de] px-3 py-1 text-[#00359f]">All</span>
-            <span className="bg-[#00359f] px-2 py-1 text-white">
-              ({totalNumber})
-            </span>
-          </button>
-        </li>
+        {totalNumber && (
+          <li className="inline-block ml-4 my-2">
+            <button
+              onClick={() => setFn(null)}
+              className="rounded"
+            >
+              <span className="bg-[#c8d3de] px-3 py-1 text-[#00359f]">All</span>
+              <span className="bg-[#00359f] px-2 py-1 text-white">
+                ({totalNumber})
+              </span>
+            </button>
+          </li>
+        )}
+
         {data.map((cat, index) => {
           return (
             <li

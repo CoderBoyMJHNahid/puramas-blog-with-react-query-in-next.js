@@ -14,7 +14,9 @@ const Posts = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_POST_URL}`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_POST_URL}/api/posts/site/${process.env.NEXT_PUBLIC_SITE_ID}`
+      );
       const data = await response.json();
       return data;
     } catch (error) {
@@ -28,12 +30,14 @@ const Posts = () => {
     queryFn: fetchData,
   });
 
-  // Filter data based on the search term
-  const filteredData = data?.filter((post) =>
-    category !== null
-      ? Number(post.post_cat) === category
-      : post.post_title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredData = data?.filter((post) => {
+    if (searchTerm) {
+      return post.post_title.toLowerCase().includes(searchTerm.toLowerCase());
+    } else if (category !== null) {
+      return Number(post.post_cat) === category;
+    }
+    return true;
+  });
 
   return (
     <section>
@@ -48,7 +52,10 @@ const Posts = () => {
           <h2 className="text-[#00359f] text-xl text-center">
             Escoge un tema de lectura
           </h2>
-          <CategoryLink setFn={setCategory} totalNumber={data?.length} />
+          <CategoryLink
+            setFn={setCategory}
+            totalNumber={data?.length}
+          />
         </div>
 
         <div className="search_wrapper flex gap-5 items-center justify-center my-6">

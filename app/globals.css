@@ -7,8 +7,18 @@
   --foreground: #171717;
   font-family: var(--font-montserrat-sans), sans-serif;
 }
-
-
+img {
+  max-width: 100%;
+}
+.resent_post {
+  width: 80px !important;
+  height: 80px !important;
+  object-fit: cover;
+}
+input.iti__search-input {
+  color: black !important;
+  padding: 0px 10px !important;
+}
 body {
   color: var(--foreground);
   background: var(--background);
@@ -150,6 +160,17 @@ input.iti__tel-input {
   border-radius: 0px;
   font-family: var(--font-montserrat-sans);
 }
+
+.whatsapp_icon_social {
+  animation: scaler 1s infinite;
+  transition: all 0.3s;
+}
+.category_image_relative {
+  width: 248px;
+  height: 100px;
+  object-fit: cover;
+}
+
 @media only screen and (min-width: 1180px) {
   .container {
     max-width: 1180px !important;
