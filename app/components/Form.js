@@ -3,30 +3,19 @@ import dynamic from "next/dynamic";
 import { FaEnvelope } from "react-icons/fa";
 import { useState } from "react";
 
-// Dynamically import the IntlTelInput component
-const IntlTelInput = dynamic(() => import("intl-tel-input/react"), {
+const IntlTelInput = dynamic(() => import("intl-tel-input/reactWithUtils"), {
   ssr: false,
 });
 
 const Form = () => {
   const [formData, setFormData] = useState({
-    whatsapp: "",
     email: "",
     message: "",
   });
+  const [number, setNumber] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
 
-  // Handle changes for phone number, validity, and error code
-  const handlePhoneChange = (value, isValid) => {
-    setFormData((prevData) => ({ ...prevData, whatsapp: value }));
-    console.log("Phone Value: ", value);
-    console.log("Is Valid: ", isValid);
-  };
-
-  const handleErrorCodeChange = (errorCode) => {
-    console.log("Error Code: ", errorCode);
-  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,9 +25,8 @@ const Form = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Prepare the form data
     const form_data = {
-      phone: formData.whatsapp, // The phone is now managed by state
+      fullPhoneNumber: number, 
       email: formData.email,
       message: formData.message,
     };
@@ -59,7 +47,7 @@ const Form = () => {
 
       if (result.status) {
         setSuccess(true);
-        setFormData({ whatsapp: "", email: "", message: "" });
+        setFormData({ email: "", message: "" });
         setTimeout(() => {
           setSuccess(null);
         }, 3000);
@@ -86,14 +74,10 @@ const Form = () => {
         <label className="my-3 text-white text-sm">WHATSAPP*</label>
         <div className="w-full">
           <IntlTelInput
-            initialValue={formData.whatsapp}  // bind the state to the initial value
-            onChangeNumber={handlePhoneChange} // Update state on phone number change
-            onChangeValidity={(isValid) => console.log("Phone Validity:", isValid)}  // Check phone validity
-            onChangeErrorCode={handleErrorCodeChange} // Handle error code if any
-            initOptions={{
-              initialCountry: "us",
-              utilsScript: "/intl-tel-input/js/utils.js?1730730622316",  // Ensure this script path is correct
-            }}
+            name="whatsapp"
+            value={formData.whatsapp}
+            onChangeNumber={setNumber} 
+            initOptions={{ initialCountry: "co" }}
           />
         </div>
 
