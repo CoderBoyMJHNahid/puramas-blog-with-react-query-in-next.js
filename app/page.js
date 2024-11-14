@@ -11,6 +11,7 @@ import GroupWrapper from "./components/GroupWrapper";
 import FormWrapper from "./components/FormWrapper";
 import Footer from "./components/Footer";
 import ContactOut from "./components/ContactOut";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <FormWrapper />
         <Footer />
         <ContactOut />
+        <ToastContainer />
       </main>
     </>
   );

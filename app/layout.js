@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "intl-tel-input/styles";
 import "animate.css";
+import "react-toastify/dist/ReactToastify.css";
 import Provider from "./service/Provider";
 
 const montserratSans = localFont({

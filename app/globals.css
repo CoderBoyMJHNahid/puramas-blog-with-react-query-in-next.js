@@ -19,6 +19,11 @@ input.iti__search-input {
   color: black !important;
   padding: 0px 10px !important;
 }
+.Toastify__toast-container--top-right {
+  top: var(--toastify-toast-top);
+  right: var(--toastify-toast-right);
+  z-index: 10000 !important;
+}
 body {
   color: var(--foreground);
   background: var(--background);

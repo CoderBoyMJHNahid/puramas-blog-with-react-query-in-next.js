@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import { FaEnvelope } from "react-icons/fa";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const IntlTelInput = dynamic(() => import("intl-tel-input/reactWithUtils"), {
   ssr: false,
@@ -12,13 +13,14 @@ const Form = () => {
     email: "",
     message: "",
   });
-  const [number, setNumber] = useState(null)
+  const [number, setNumber] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [success, setSuccess] = useState(null);
-
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const isValidEmail = (email) => {
+    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
   };
 
   const handleSubmit = async (e) => {
@@ -26,12 +28,32 @@ const Form = () => {
     setIsSubmitting(true);
 
     const form_data = {
-      fullPhoneNumber: number, 
+      fullPhoneNumber: number,
       email: formData.email,
       message: formData.message,
     };
 
-    console.log("Form Data:", form_data);
+    if (number.length < 7) {
+      setIsSubmitting(false);
+      toast.error(
+        "CELULAR INCOMPLETO Invalid Phone Number 无效电话 هاتف غير صالح"
+      );
+      return;
+    }
+    if (!isValidEmail(formData.email)) {
+      toast.error(
+        "CORREO EQUIVOCADO Invalid eMail 错误的电子邮件 بريد إلكتروني خاطئ"
+      );
+      setIsSubmitting(false);
+      return;
+    }
+    if (formData.message.trim().length < 30) {
+      toast.error(
+        "ESCRIBE UN POCO MÁS Write a bit more 多写一点 اكتب أكثر من ذلك بقليل"
+      );
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch("https://contact.avimex.co/", {
@@ -43,20 +65,16 @@ const Form = () => {
       });
 
       const result = await response.json();
-      console.log("Submission Result:", result);
 
       if (result.status) {
-        setSuccess(true);
+        toast.success(result.message);
         setFormData({ email: "", message: "" });
-        setTimeout(() => {
-          setSuccess(null);
-        }, 3000);
+        setNumber(null)
       } else {
-        setSuccess(false);
+        toast.error(result.message);
       }
     } catch (error) {
       console.error("Error during form submission:", error);
-      setSuccess(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -76,7 +94,7 @@ const Form = () => {
           <IntlTelInput
             name="whatsapp"
             value={formData.whatsapp}
-            onChangeNumber={setNumber} 
+            onChangeNumber={setNumber}
             initOptions={{ initialCountry: "co" }}
           />
         </div>
@@ -108,17 +126,6 @@ const Form = () => {
         >
           {isSubmitting ? "Enviando..." : "Enviar"}
         </button>
-
-        {success === true && (
-          <p className="text-green-500 text-sm mt-4">
-            Mensaje enviado con éxito!
-          </p>
-        )}
-        {success === false && (
-          <p className="text-red-500 text-sm mt-4">
-            Error al enviar el mensaje.
-          </p>
-        )}
       </form>
     </div>
   );
