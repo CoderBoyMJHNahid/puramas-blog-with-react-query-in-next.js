@@ -22,7 +22,7 @@ const page = () => {
   const { slug } = useParams();
 
   const [category, setCategory] = useState(null);
-  const singlePostFetch = async (req, res) => {
+  const singlePostFetch = async () => {
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_POST_URL}/api/posts/singlepost/${slug}`
@@ -43,6 +43,7 @@ const page = () => {
       retry();
     },
   });
+  console.log("🚀 ~ page ~ data:", data)
 
   if (isLoading) return <LoadingImage />;
 
