@@ -24,7 +24,7 @@ const FormWrapper = () => {
             secondLine={`También nos puedes conseguir en nuestras redes sociales con más de 500 mil seguidores.`}
             thirdLine={`¿Sabias que somos la marca de ortopedía más activa y popular del mundo?`}
           />
-          <div className="flex gap-10 justify-between my-8">
+          <div className="lg:flex gap-10 justify-between my-8">
             <div className="text-center animate__animated animate__fadeInRight animate__delay-1s">
               <Image
                 src={`/pura.webp`}
@@ -40,8 +40,8 @@ const FormWrapper = () => {
               <p className="text-sm">Carrera 80C No.32EE-28 Laureles</p>
               <p className="text-sm">050031 Medellin Colombia</p>
 
-              <ul className="flex gap-4 mt-4 items-center justify-center">
-                <li className="text-2xl bg-black text-white p-3 rounded-xl">
+              <ul className="flex gap-2 lg:gap-4 mt-4 items-center justify-center">
+                <li className="text-xl lg:text-2xl bg-black text-white p-2 lg:p-3 rounded-xl">
                   <Link
                     href={`https://instagram.puramas.co/`}
                     target="_blank"
@@ -49,7 +49,7 @@ const FormWrapper = () => {
                     <FaInstagram />
                   </Link>
                 </li>
-                <li className="text-2xl bg-black text-white p-3 rounded-xl">
+                <li className="text-xl lg:text-2xl bg-black text-white p-2 lg:p-3 rounded-xl">
                   <Link
                     href={`https://youtube.puramas.co/`}
                     target="_blank"
@@ -57,7 +57,7 @@ const FormWrapper = () => {
                     <FaYoutube />
                   </Link>
                 </li>
-                <li className="text-2xl bg-black text-white p-3 rounded-xl">
+                <li className="text-xl lg:text-2xl bg-black text-white p-2 lg:p-3 rounded-xl">
                   <Link
                     href={`https://facebook.puramas.co/`}
                     target="_blank"
@@ -65,7 +65,7 @@ const FormWrapper = () => {
                     <FaFacebookF />
                   </Link>
                 </li>
-                <li className="text-2xl bg-black text-white p-3 rounded-xl">
+                <li className="text-xl lg:text-2xl bg-black text-white p-2 lg:p-3 rounded-xl">
                   <Link
                     href={`https://www.tiktok.com/@puramas.co`}
                     target="_blank"
@@ -73,7 +73,7 @@ const FormWrapper = () => {
                     <FaTiktok />
                   </Link>
                 </li>
-                <li className="text-2xl bg-black text-white p-3 rounded-xl">
+                <li className="text-xl lg:text-2xl bg-black text-white p-2 lg:p-3 rounded-xl">
                   <Link
                     href={`https://twitter.com/puramas_co`}
                     target="_blank"
@@ -81,7 +81,7 @@ const FormWrapper = () => {
                     <BsTwitterX />
                   </Link>
                 </li>
-                <li className="text-2xl bg-black text-white p-3 rounded-xl">
+                <li className="text-xl lg:text-2xl bg-black text-white p-2 lg:p-3 rounded-xl">
                   <Link
                     href={`https://co.linkedin.com/company/avimex-co`}
                     target="_blank"
@@ -89,7 +89,7 @@ const FormWrapper = () => {
                     <FaLinkedinIn />
                   </Link>
                 </li>
-                <li className="text-2xl bg-black text-white p-3 rounded-xl">
+                <li className="text-xl lg:text-2xl bg-black text-white p-2 lg:p-3 rounded-xl">
                   <Link
                     href={`https://avimex.co/`}
                     target="_blank"
@@ -97,7 +97,7 @@ const FormWrapper = () => {
                     <FaGlobe />
                   </Link>
                 </li>
-                <li className="text-2xl bg-black text-white p-3 rounded-xl">
+                <li className="text-xl lg:text-2xl bg-black text-white p-2 lg:p-3 rounded-xl">
                   <Link
                     href={`https://maps.app.goo.gl/t4GsEbCouxTvJN587`}
                     target="_blank"
@@ -107,7 +107,7 @@ const FormWrapper = () => {
                 </li>
               </ul>
             </div>
-            <div className="animate__animated animate__fadeInLeft animate__delay-1s">
+            <div className="mt-14 lg:mt-0 animate__animated animate__fadeInLeft animate__delay-1s">
               <Form />
             </div>
           </div>

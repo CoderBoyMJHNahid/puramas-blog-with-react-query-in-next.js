@@ -81,7 +81,7 @@ const Form = () => {
   };
 
   return (
-    <div className="bg-black px-20 py-10 w-full md:w-[500px]">
+    <div className="bg-black px-8 lg:px-20 py-10 w-full md:w-[500px]">
       <div>
         <FaEnvelope className="m-auto text-4xl text-white" />
       </div>

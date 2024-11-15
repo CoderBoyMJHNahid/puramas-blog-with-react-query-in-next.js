@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaShoppingBasket } from "react-icons/fa";
 const PromoCard = ({ image,link,number }) => {
   return (
-    <div className={`promo_card_wrapper text-center relative w-[270] ${number ==0 || number == 1 ? "animate__animated animate__fadeInLeft": "animate__animated animate__fadeInUp"}`}>
+    <div className={`promo_card_wrapper text-center relative lg:w-[270] ${number ==0 || number == 1 ? "animate__animated animate__fadeInLeft": "animate__animated animate__fadeInUp"}`}>
       <Image
         src={image}
         width={270}

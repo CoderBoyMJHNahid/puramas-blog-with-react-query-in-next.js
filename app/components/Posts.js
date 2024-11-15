@@ -40,7 +40,7 @@ const Posts = () => {
   });
 
   return (
-    <section>
+    <section id="posts" className="pb-10">
       <div className="container m-auto py-8">
         <TitleWrapper
           title="Pura+ un mundo de consejos"

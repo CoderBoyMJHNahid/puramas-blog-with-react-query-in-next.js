@@ -79,8 +79,8 @@ const Footer = () => {
             </Link>
           </li>
         </ul>
-        <ul className="flex gap-6 items-center my-6 justify-center text-white">
-          <li>
+        <ul className="my-6 text-center text-white">
+          <li className={`inline-block`}>
             <Link
               className="flex items-center gap-1"
               href={`https://www.puramas.co/2020/04/clientes.html`}
@@ -89,7 +89,7 @@ const Footer = () => {
               Clientes
             </Link>
           </li>
-          <li>
+          <li className={`inline-block ml-5`}>
             <Link
               className="flex items-center gap-1"
               href={`https://www.puramas.co/2024/04/trabajo.html`}
@@ -98,7 +98,7 @@ const Footer = () => {
               Trabajo
             </Link>
           </li>
-          <li>
+          <li className={`inline-block ml-5`}>
             <Link
               className="flex items-center gap-1"
               href={`https://www.puramas.co/2020/04/logistica.html`}
@@ -107,7 +107,7 @@ const Footer = () => {
               Logistica
             </Link>
           </li>
-          <li>
+          <li className={`inline-block ml-5`}>
             <Link
               className="flex items-center gap-1"
               href={`https://www.puramas.co/2020/04/proveedores.html`}
@@ -117,26 +117,26 @@ const Footer = () => {
             </Link>
           </li>
         </ul>
-        <ul className="flex gap-6 text-white items-center justify-center">
-          <li>
+        <ul className="text-white text-center">
+          <li className="inline-block">
             <Link href={`https://www.puramas.co/2020/04/legal.html`}>
               Legal |
             </Link>
           </li>
-          <li>
+          <li className="inline-block ml-5">
             <Link href={`https://pqrs.puramas.co/`}>PQRS |</Link>
           </li>
-          <li>
+          <li className="inline-block ml-5">
             <Link href={`https://www.puramas.co/2020/04/habeasdata.html`}>
               Tratamiento Datos |
             </Link>
           </li>
-          <li>
+          <li className="inline-block ml-5">
             <Link href={`https://www.puramas.co/devoluciones`}>
               Politica Devoluciones |
             </Link>
           </li>
-          <li>
+          <li className="inline-block ml-5">
             <Link href={`https://www.puramas.co/2020/04/garantia.html`}>
               Garantias
             </Link>

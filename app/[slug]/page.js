@@ -88,7 +88,7 @@ const page = () => {
                           Compartelo en tus redes:
                         </span>
                       </h2>
-                      <div className="social_icons_wrapper flex items-center justify-end gap-2">
+                      <div className="social_icons_wrapper flex items-center justify-center lg:justify-end gap-2 mt-5 lg:mt-0">
                         <Link
                           href={`https://www.facebook.com/sharer.php?u=${encodeURIComponent(
                             window.location.href
@@ -131,7 +131,7 @@ const page = () => {
                         </Link>
                       </div>
 
-                      <div className="relative_category_wrapper my-4 flex items-center justify-content">
+                      <div className="relative_category_wrapper my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         {relatedPosts.length > 0 &&
                           relatedPosts.map((postCat, index) => {
                             return (

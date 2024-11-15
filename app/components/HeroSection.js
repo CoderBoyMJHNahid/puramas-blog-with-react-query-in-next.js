@@ -8,9 +8,9 @@ const HeroSection = () => {
   return (
     <section
       id="hero-section"
-      className="flex flex-col items-center justify-center h-screen"
+      className="flex flex-col items-center justify-center text-center h-screen px-5"
     >
-      <h1 className="text-5xl uppercase mb-4 text-white">
+      <h1 className="text-2xl lg:text-5xl uppercase mb-4 text-white">
         Bienvenidos a PURA+
       </h1>
       <TypingText />
