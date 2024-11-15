@@ -6,7 +6,7 @@ import PopularPost from "./PopularPost";
 
 const LeftSideBar = () => {
   return (
-    <div className="pt-10">
+    <div className="pt-10" id="left_side_wrapper">
       <div className="mb-6">
         <Link
           href={`https://youtube.puramas.co/`}

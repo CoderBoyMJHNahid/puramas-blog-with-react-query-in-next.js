@@ -79,7 +79,7 @@ const Header = () => {
           <div className="menu_wrapper hidden lg:block w-5/6">
             <ul
               className={`uppercase text-sm flex items-center ${
-                slug ? "text-[#777]" : "text-white"
+                slug && !isScrolled ? "text-[#777]" : "text-white"
               }  font-bold justify-end gap-9`}
             >
               {slug ? (

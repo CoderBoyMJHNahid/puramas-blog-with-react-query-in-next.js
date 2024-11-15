@@ -7,10 +7,11 @@ import { extractImage } from "../utils/ExtractImg";
 import LoadingImage from "./LoadingImage";
 import CategoryLink from "./CategoryLink";
 import { useState } from "react";
-
+import { FaCirclePlus } from "react-icons/fa6";
 const Posts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState(null);
+  const [postsToShow, setPostsToShow] = useState(8);
 
   const fetchData = async () => {
     try {
@@ -39,8 +40,15 @@ const Posts = () => {
     return true;
   });
 
+  const handleLoadMore = () => {
+    setPostsToShow((prev) => prev + 8);
+  };
+
   return (
-    <section id="posts" className="pb-10">
+    <section
+      id="posts"
+      className="pb-10"
+    >
       <div className="container m-auto py-8">
         <TitleWrapper
           title="Pura+ un mundo de consejos"
@@ -76,26 +84,39 @@ const Posts = () => {
 
         {isLoading && <LoadingImage />}
         {!isLoading && filteredData && (
-          <div className="post_wrapper gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {filteredData.map((elem, index) => (
-              <div
-                className="relative group"
-                key={index}
-              >
-                <Link href={elem.post_slug}>
-                  <Image
-                    src={extractImage(elem.post_desc)}
-                    width={265}
-                    height={260}
-                    alt="Post image"
-                  />
-                  <div className="absolute top-0 opacity-0 group-hover:opacity-100 flex items-center justify-center h-full w-full bg-[#0000005c] text-white text-2xl">
-                    <h2>{elem.post_title}</h2>
-                  </div>
-                </Link>
+          <>
+            <div className="post_wrapper gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+              {filteredData.slice(0, postsToShow).map((elem, index) => (
+                <div
+                  className="relative group animate__animated animate__flipInX"
+                  key={index}
+                >
+                  <Link href={elem.post_slug}>
+                    <Image
+                      src={extractImage(elem.post_desc)}
+                      width={265}
+                      height={260}
+                      alt="Post image"
+                    />
+                    <div className="absolute top-0 opacity-0 group-hover:opacity-100 flex items-center justify-center h-full w-full bg-[#0000005c] text-white text-2xl">
+                      <h2>{elem.post_title}</h2>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+            {postsToShow < filteredData.length && (
+              <div className="text-center mt-6">
+                <button
+                  className="bg-[#00359f] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#ffd966] duration-75 m-auto flex items-center gap-2"
+                  onClick={handleLoadMore}
+                >
+                  <FaCirclePlus className="text-[#ffd966] whatsapp_icon_social" />{" "}
+                  Ver más entradas
+                </button>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
       </div>
     </section>

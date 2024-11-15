@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { extractImage } from "../utils/ExtractImg";
 import Image from "next/image";
+import Link from "next/link";
 
 const MostPopular = () => {
   const fetchMostPopular = async () => {
@@ -32,7 +33,8 @@ const MostPopular = () => {
         {isError && <div>Error fetching posts</div>}
         {data &&
           data.map((post, index) => (
-            <div
+            <Link
+              href={post.post_slug}
               key={index}
               className="flex items-start gap-4 py-2 border-b "
             >
@@ -46,7 +48,7 @@ const MostPopular = () => {
               <div className="flex justify-center w-full">
                 <h4 className="text-sm">{post.post_title}</h4>
               </div>
-            </div>
+            </Link>
           ))}
       </div>
     </div>

@@ -58,11 +58,11 @@ ul.flag_select_wrapper {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
 }
-ul.flag_select_wrapper li{
+ul.flag_select_wrapper li {
   padding-left: 10px !important;
   padding: 5px 0px;
 }
-ul.flag_select_wrapper li a{
+ul.flag_select_wrapper li a {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -77,9 +77,16 @@ html {
 }
 #empresa,
 #shop,
-#contacto, #posts {
+#contacto,
+#posts {
   padding-top: 115px;
   margin-top: -70px;
+}
+#left_side_wrapper img {
+  width: 100%;
+}
+.relative_category_wrapper img {
+  width: 100%;
 }
 .post_wrapper img {
   width: 100%;
