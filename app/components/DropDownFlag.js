@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
@@ -14,11 +15,11 @@ const DropDownFlag = ({ openMenu }) => {
         className="selected_flag"
         onClick={toggleDropdown}
       >
-        <img
+        <Image
+          width={24}
+          height={16}
           alt="Flag Mai"
           src="https://www.images.puramas.co/flag-sp.png"
-          style={{ height: "16px" }}
-          width="24px"
         />
         <span className="lan_name">SP</span>
         <FaAngleDown className="text-red-500" />
@@ -31,11 +32,11 @@ const DropDownFlag = ({ openMenu }) => {
                 href="https://puramas.co"
                 className="hover:text-[#ffd966] duration-75"
               >
-                <img
+                <Image
+                  width={24}
+                  height={16}
                   alt="Flag Spain"
                   src="https://www.images.puramas.co/flag-sp.png"
-                  style={{ height: "16px" }}
-                  width="24px"
                 />
                 <span>Sp</span>
               </Link>
@@ -45,11 +46,11 @@ const DropDownFlag = ({ openMenu }) => {
                 href="https://ar.puramas.co"
                 className="hover:text-[#ffd966] duration-75"
               >
-                <img
+                <Image
+                  width={24}
+                  height={16}
                   alt="Flag Arab"
                   src="https://www.images.puramas.co/flag-ar.png"
-                  style={{ height: "16px" }}
-                  width="24px"
                 />
                 <span>عرب</span>
               </Link>
@@ -59,11 +60,11 @@ const DropDownFlag = ({ openMenu }) => {
                 href="https://cn.puramas.co"
                 className="hover:text-[#ffd966] duration-75"
               >
-                <img
+                <Image
+                  width={24}
+                  height={16}
                   alt="Flag China"
                   src="https://www.images.puramas.co/flag-cn.png"
-                  style={{ height: "16px" }}
-                  width="24px"
                 />
                 <span>中国</span>
               </Link>
@@ -73,11 +74,11 @@ const DropDownFlag = ({ openMenu }) => {
                 href="https://en.puramas.co/"
                 className="hover:text-[#ffd966] duration-75"
               >
-                <img
+                <Image
+                  width={24}
+                  height={16}
                   alt="Flag UK"
                   src="https://www.images.puramas.co/flag-en.png"
-                  style={{ height: "16px" }}
-                  width="24px"
                 />
                 <span>En</span>
               </Link>
@@ -87,11 +88,11 @@ const DropDownFlag = ({ openMenu }) => {
                 href="https://fr.puramas.co"
                 className="hover:text-[#ffd966] duration-75"
               >
-                <img
+                <Image
+                  width={24}
+                  height={16}
                   alt="Flag France"
                   src="https://www.images.puramas.co/flag-fr.png"
-                  style={{ height: "16px" }}
-                  width="24px"
                 />
                 <span>Fr</span>
               </Link>
@@ -101,11 +102,11 @@ const DropDownFlag = ({ openMenu }) => {
                 href="https://de.puramas.co"
                 className="hover:text-[#ffd966] duration-75"
               >
-                <img
+                <Image
+                  width={24}
+                  height={16}
                   alt="Flag Germany"
                   src="https://www.images.puramas.co/flag-de.png"
-                  style={{ height: "16px" }}
-                  width="24px"
                 />
                 <span>De</span>
               </Link>
@@ -115,11 +116,11 @@ const DropDownFlag = ({ openMenu }) => {
                 href="https://it.puramas.co"
                 className="hover:text-[#ffd966] duration-75"
               >
-                <img
+                <Image
+                  width={24}
+                  height={16}
                   alt="Flag Italy"
                   src="https://www.images.puramas.co/flag-it.png"
-                  style={{ height: "16px" }}
-                  width="24px"
                 />
                 <span>It</span>
               </Link>

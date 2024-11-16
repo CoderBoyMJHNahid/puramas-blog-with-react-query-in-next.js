@@ -9,8 +9,8 @@ export const extractImage = (html) => {
     const src = img.src;
 
     const updatedSrc = src.replace(
-      `${process.env.NEXT_PUBLIC_OWN_URL}/api/uploads`,
-      `${process.env.NEXT_PUBLIC_CMS_URL}/api/uploads`
+      `${process.env.NEXT_PUBLIC_OWN_URL}api/uploads`,
+      `${process.env.NEXT_PUBLIC_CMS_URL}api/uploads`
     );
     return updatedSrc;
   }

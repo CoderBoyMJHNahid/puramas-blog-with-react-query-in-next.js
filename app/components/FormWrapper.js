@@ -1,19 +1,31 @@
+"use client";
 import React from "react";
 import TitleWrapper from "./TitleWrapper";
 import Image from "next/image";
 import Link from "next/link";
-
-import { FaInstagram } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaYoutube,
+  FaFacebookF,
+  FaTiktok,
+  FaLinkedinIn,
+  FaGlobe,
+  FaMap,
+} from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaGlobe } from "react-icons/fa";
-import { FaMap } from "react-icons/fa";
 import Form from "./Form";
+import { motion } from "framer-motion";
 
 const FormWrapper = () => {
+  const fadeInVariants = {
+    hidden: { opacity: 0, x: -250 },
+    visible: { opacity: 1, x: 0 },
+  };
+  const fadeRightVariants = {
+    hidden: { opacity: 0, x: 250 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <>
       <section id="contacto">
@@ -24,8 +36,17 @@ const FormWrapper = () => {
             secondLine={`También nos puedes conseguir en nuestras redes sociales con más de 500 mil seguidores.`}
             thirdLine={`¿Sabias que somos la marca de ortopedía más activa y popular del mundo?`}
           />
+
           <div className="lg:flex gap-10 justify-between my-8">
-            <div className="text-center animate__animated animate__fadeInRight animate__delay-1s">
+            {/* Image Section with Animation */}
+            <motion.div
+              className="text-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeRightVariants}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <Image
                 src={`/pura.webp`}
                 alt="Pura+ office image"
@@ -106,10 +127,19 @@ const FormWrapper = () => {
                   </Link>
                 </li>
               </ul>
-            </div>
-            <div className="mt-14 lg:mt-0 animate__animated animate__fadeInLeft animate__delay-1s">
+            </motion.div>
+
+            {/* Form Section with Animation */}
+            <motion.div
+              className="mt-14 lg:mt-0"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeInVariants}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <Form />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

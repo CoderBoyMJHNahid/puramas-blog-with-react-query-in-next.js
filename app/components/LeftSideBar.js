@@ -65,7 +65,7 @@ const LeftSideBar = () => {
               width={88}
               height={31}
               alt="wikipedia banner"
-              className="m-auto"
+              className="m-auto wiki_img"
             />
             <p className="text-[9px] text-black text-center">
               Este obra está bajo una licencia de Creative Commons

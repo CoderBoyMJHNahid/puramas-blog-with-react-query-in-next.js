@@ -19,6 +19,7 @@ const Promo = () => {
               <PromoCard
                 key={index}
                 number={index}
+                totalCards={elem.length}
                 image={elem.image}
                 link={elem.link}
               />

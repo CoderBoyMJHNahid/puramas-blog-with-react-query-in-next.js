@@ -1,9 +1,26 @@
+"use client"
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FaShoppingBasket } from "react-icons/fa";
-const PromoCard = ({ image,link,number }) => {
+
+const PromoCard = ({ number, image, link }) => {
+  // Define Framer Motion animation variants
+  const variants = {
+    fadeInLeft: { opacity: 0, x: -150 },
+    fadeInUp: { opacity: 0, y: 150 },
+  };
+
+  const selectedVariant = number === 0 || number === 1 ? variants.fadeInLeft : variants.fadeInUp;
+
   return (
-    <div className={`promo_card_wrapper text-center relative lg:w-[270] ${number ==0 || number == 1 ? "animate__animated animate__fadeInLeft": "animate__animated animate__fadeInUp"}`}>
+    <motion.div
+      className="promo_card_wrapper text-center relative lg:w-[270]"
+      initial={selectedVariant}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }} // Triggers once when 20% of the element is in view
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <Image
         src={image}
         width={270}
@@ -14,16 +31,12 @@ const PromoCard = ({ image,link,number }) => {
       <div className="overlay absolute w-full top-0 h-full flex flex-col items-center justify-center bg-[#141414b3]">
         <p className="mb-0 text-white">Garantia 100% Despacho 48h</p>
         <span className="hover:bg-[#355c7d] p-2 rounded-full">
-          <Link
-            href={link}
-            target="_blank"
-            className="text-white"
-          >
-            <FaShoppingBasket className="text-lg text-yellow-600"/>
+          <Link href={link} target="_blank" className="text-white">
+            <FaShoppingBasket className="text-lg text-yellow-600" />
           </Link>
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

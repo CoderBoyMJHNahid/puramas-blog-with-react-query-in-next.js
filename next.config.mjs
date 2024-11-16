@@ -6,6 +6,7 @@ const nextConfig = {
       "blogger.googleusercontent.com",
       "admin.avexim.com",
       "puramas.avexim.com",
+      "www.images.puramas.co"
     ],
   },
 };

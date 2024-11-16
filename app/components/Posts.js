@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import TitleWrapper from "./TitleWrapper";
+import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { extractImage } from "../utils/ExtractImg";
@@ -12,6 +13,11 @@ const Posts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState(null);
   const [postsToShow, setPostsToShow] = useState(8);
+
+  const variants = {
+    hidden: { opacity: 0, rotateX: -90 },
+    visible: { opacity: 1, rotateX: 0 },
+  };
 
   const fetchData = async () => {
     try {
@@ -87,9 +93,14 @@ const Posts = () => {
           <>
             <div className="post_wrapper gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
               {filteredData.slice(0, postsToShow).map((elem, index) => (
-                <div
-                  className="relative group animate__animated animate__flipInX"
+                <motion.div
+                  className="relative group"
                   key={index}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  variants={variants}
                 >
                   <Link href={elem.post_slug}>
                     <Image
@@ -98,11 +109,11 @@ const Posts = () => {
                       height={260}
                       alt="Post image"
                     />
-                    <div className="absolute top-0 opacity-0 group-hover:opacity-100 flex items-center justify-center h-full w-full bg-[#0000005c] text-white text-2xl">
+                    <div className="absolute top-0 opacity-0 group-hover:opacity-100 flex items-center justify-center h-full w-full bg-[#0000005c] text-white text-2xl transition-opacity duration-300 ease-in-out">
                       <h2>{elem.post_title}</h2>
                     </div>
                   </Link>
-                </div>
+                </motion.div>
               ))}
             </div>
             {postsToShow < filteredData.length && (

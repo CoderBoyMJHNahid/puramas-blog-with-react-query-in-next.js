@@ -18,7 +18,7 @@ import { extractImage } from "../utils/ExtractImg";
 import LeftSideBar from "../components/LeftSideBar";
 import AllPosts from "../components/AllPosts";
 
-const page = () => {
+const Page = () => {
   const { slug } = useParams();
 
   const [category, setCategory] = useState(null);
@@ -192,4 +192,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

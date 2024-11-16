@@ -88,6 +88,9 @@ html {
 .relative_category_wrapper img {
   width: 100%;
 }
+.wiki_img{
+  width: 88px !important;
+}
 .post_wrapper img {
   width: 100%;
   height: 260px;
