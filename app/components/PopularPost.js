@@ -10,8 +10,8 @@ const PopularPost = () => {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_POST_URL}/api/posts/popularpost/${process.env.NEXT_PUBLIC_SITE_ID}`
       );
-      const data = await response.json();
-      return data;
+      const res = await response.json();
+      return res.length > 0 ? res : [];
     } catch (error) {
       console.log(error);
       return [];
@@ -22,6 +22,7 @@ const PopularPost = () => {
     queryKey: ["popularposts"],
     queryFn: fetchPopular,
   });
+  console.log("🚀 ~ PopularPost ~ data:", data)
 
   return (
     <div className="shadow-xl mb-6">

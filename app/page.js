@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import Promo from "./components/Promo";
@@ -13,7 +12,8 @@ import Footer from "./components/Footer";
 import ContactOut from "./components/ContactOut";
 import { ToastContainer } from "react-toastify";
 
-export default function Home() {
+export default async function Home() {
+  await new Promise((resolve) => setTimeout(resolve, 300));
   return (
     <>
       <main>

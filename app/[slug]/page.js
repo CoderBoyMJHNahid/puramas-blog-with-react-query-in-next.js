@@ -25,10 +25,21 @@ const Page = () => {
   const singlePostFetch = async () => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_POST_URL}/api/posts/singlepost/${slug}`
+        `${process.env.NEXT_PUBLIC_POST_URL}/api/posts/singlepost/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            slug,
+            postId: process.env.NEXT_PUBLIC_SITE_ID,
+          }),
+        }
       );
 
-      return response.json();
+      const res = response.json();
+      return res;
     } catch (error) {
       console.log(error);
       return [];
@@ -43,11 +54,14 @@ const Page = () => {
       retry();
     },
   });
-  console.log("🚀 ~ page ~ data:", data)
 
   if (isLoading) return <LoadingImage />;
 
   const { currentPost, relatedPosts, previousPost, nextPost } = data;
+
+  const meta = currentPost.post_title ? `${currentPost.post_title} - Pura+ | Ortopedia Fisioterapia Salud Belleza` : "Pura+ | Ortopedia Fisioterapia Salud Belleza";
+
+  document.title = meta
 
   const processedDesc = currentPost.post_desc.replace(
     /<img\s+[^>]*src="(\/[^"]*)"/g,
