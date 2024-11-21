@@ -59,9 +59,11 @@ const Page = () => {
 
   const { currentPost, relatedPosts, previousPost, nextPost } = data;
 
-  const meta = currentPost.post_title ? `${currentPost.post_title} - Pura+ | Ortopedia Fisioterapia Salud Belleza` : "Pura+ | Ortopedia Fisioterapia Salud Belleza";
+  const meta = currentPost.post_title
+    ? `${currentPost.post_title} - Pura+ | Ortopedia Fisioterapia Salud Belleza`
+    : "Pura+ | Ortopedia Fisioterapia Salud Belleza";
 
-  document.title = meta
+  document.title = meta;
 
   const processedDesc = currentPost.post_desc.replace(
     /<img\s+[^>]*src="(\/[^"]*)"/g,
@@ -77,6 +79,7 @@ const Page = () => {
             <div className="lg:flex lg:gap-10 items-start justify-between">
               <div className="w-full lg:w-9/12">
                 <div className="category_wrapper mt-8">
+                  <h1 className="hidden">{meta}</h1>
                   <h2 className="text-[#00359f] text-xl text-center">
                     Escoge un tema de lectura
                   </h2>
