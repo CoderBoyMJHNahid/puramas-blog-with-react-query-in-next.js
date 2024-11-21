@@ -50,7 +50,7 @@ const PlaceLoc = () => {
                   {elem.icon}
                 </Link>
               </div>
-              <h2>{elem.name}</h2>
+              <p className="font-medium">{elem.name}</p>
               <p className="text-sm">{elem.desc}</p>
             </motion.div>
           ))}
