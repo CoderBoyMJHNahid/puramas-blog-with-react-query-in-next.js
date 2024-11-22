@@ -2,21 +2,22 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { FaShoppingBasket } from "react-icons/fa";
 
 const PromoCard = ({ number, image, link }) => {
-  // Define Framer Motion animation variants
+  
   const variants = {
-    fadeInLeft: { opacity: 0, x: -150 },
+    // fadeInLeft: { opacity: 0, x: -150 },
     fadeInUp: { opacity: 0, y: 150 },
   };
 
-  const selectedVariant = number === 0 || number === 1 ? variants.fadeInLeft : variants.fadeInUp;
+  // const selectedVariant = number === 0 || number === 1 ? variants.fadeInLeft : variants.fadeInUp;
 
   return (
     <motion.div
       className="promo_card_wrapper text-center relative lg:w-[270]"
-      initial={selectedVariant}
+      initial={variants.fadeInUp}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, amount: 0.2 }} // Triggers once when 20% of the element is in view
       transition={{ duration: 0.8, ease: "easeOut" }}

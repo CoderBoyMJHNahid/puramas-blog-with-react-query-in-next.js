@@ -10,6 +10,7 @@
 img {
   max-width: 100%;
 }
+
 .resent_post {
   width: 80px !important;
   height: 80px !important;
@@ -71,6 +72,9 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-montserrat-sans), sans-serif;
+}
+main {
+  overflow-x: hidden;
 }
 html {
   scroll-behavior: smooth !important;
