@@ -5,10 +5,15 @@ import { FaShoppingBasket } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 const HeroSection = () => {
+
+  const randomInt = (min, max)=> { 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
   return (
     <section
       id="hero-section"
-      className="flex flex-col items-center justify-center text-center h-screen px-5"
+      className={`flex flex-col items-center bg-changer-${randomInt(1,4)} justify-center text-center h-screen px-5`}
     >
       <h1 className="hidden">Pura+ | Ortopedia Fisioterapia Salud Belleza</h1>
       <h2 className="text-2xl lg:text-5xl uppercase mb-4 text-white">

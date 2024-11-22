@@ -88,13 +88,16 @@ html {
 .relative_category_wrapper img {
   width: 100%;
 }
-.wiki_img{
+.wiki_img {
   width: 88px !important;
 }
 .post_wrapper img {
   width: 100%;
   height: 260px;
   object-fit: cover;
+}
+header#header {
+  border-color: transparent;
 }
 .scrolled-header {
   background-color: rgba(30, 30, 30, 0.85);
@@ -108,9 +111,25 @@ html {
   display: block;
   transition: all 0.5s;
 }
-#hero-section {
+
+.bg-changer-1 {
   background-image: linear-gradient(#00000025, #00000025),
     linear-gradient(#00000025, #00000025), url("/hero-section.webp");
+}
+.bg-changer-2 {
+  background-image: linear-gradient(#00000025, #00000025),
+    linear-gradient(#00000025, #00000025), url("/hero-section2.webp");
+}
+.bg-changer-3 {
+  background-image: linear-gradient(#00000025, #00000025),
+    linear-gradient(#00000025, #00000025), url("/hero-section3.webp");
+}
+.bg-changer-4 {
+  background-image: linear-gradient(#00000025, #00000025),
+    linear-gradient(#00000025, #00000025), url("/hero-section4.webp");
+}
+
+#hero-section {
   background-size: cover;
   background-position: center;
   &::after {
