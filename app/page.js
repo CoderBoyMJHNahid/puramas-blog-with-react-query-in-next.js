@@ -1,3 +1,4 @@
+"use client"
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import Promo from "./components/Promo";
@@ -11,9 +12,22 @@ import FormWrapper from "./components/FormWrapper";
 import Footer from "./components/Footer";
 import ContactOut from "./components/ContactOut";
 import { ToastContainer } from "react-toastify";
+import { useEffect, useState } from "react";
+import LoadingImage from "./components/LoadingImage";
 
-export default async function Home() {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
+  if (loading) {
+    return <LoadingImage />
+  }
+
   return (
     <>
       <main>
