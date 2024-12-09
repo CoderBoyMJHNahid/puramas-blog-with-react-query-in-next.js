@@ -49,9 +49,9 @@ const Header = () => {
   return (
     <header
       id="header"
-      className={`absolute w-full ${
-        isScrolled ? "scrolled-header" : ""
-      } shadow-custom`}
+      className={`absolute w-full ${isScrolled ? "scrolled-header" : ""} ${
+        slug ? "shadow-custom" : ""
+      } `}
     >
       <nav className="container m-auto relative">
         <div className="flex items-center justify-between py-6">
@@ -256,7 +256,9 @@ const Header = () => {
                           <Link
                             href={`https://instagram.puramas.co/`}
                             target="_blank"
-                            onClick={()=>{setMenuOpen(false)}}
+                            onClick={() => {
+                              setMenuOpen(false);
+                            }}
                           >
                             <FaInstagram />
                           </Link>
@@ -265,7 +267,9 @@ const Header = () => {
                           <Link
                             href={`https://youtube.puramas.co/`}
                             target="_blank"
-                            onClick={()=>{setMenuOpen(false)}}
+                            onClick={() => {
+                              setMenuOpen(false);
+                            }}
                           >
                             <FaYoutube />
                           </Link>
@@ -274,7 +278,9 @@ const Header = () => {
                           <Link
                             href={`https://facebook.puramas.co/`}
                             target="_blank"
-                            onClick={()=>{setMenuOpen(false)}}
+                            onClick={() => {
+                              setMenuOpen(false);
+                            }}
                           >
                             <FaFacebookF />
                           </Link>

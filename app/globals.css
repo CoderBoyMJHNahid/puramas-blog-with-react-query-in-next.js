@@ -102,6 +102,7 @@ html {
 }
 header#header {
   border-color: transparent;
+  z-index: 1000 !important;
 }
 .scrolled-header {
   background-color: rgba(30, 30, 30, 0.85);
@@ -136,16 +137,18 @@ header#header {
 #hero-section {
   background-size: cover;
   background-position: center;
+  position: relative;
+  overflow: hidden !important;
   &::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     height: 100px;
     width: 100%;
     background: url("/header-mask-new.png") no-repeat center;
-    left: 0;
+    /* left: 0;
     right: 0;
-    margin: 0 auto;
+    margin: 0 auto; */
     background-size: cover;
   }
 }
@@ -259,6 +262,23 @@ input.iti__tel-input {
     max-width: 1180px !important;
   }
 }
+/* @media only screen and (max-width: 991px) {
+  #hero-section {
+    overflow: hidden !important;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      background: url("/header-mask-new.png") no-repeat center;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      background-size: cover;
+    }
+  }
+} */
 
 @keyframes scaler {
   0% {
