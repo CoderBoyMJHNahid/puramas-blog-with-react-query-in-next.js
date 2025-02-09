@@ -9,10 +9,13 @@ import LoadingImage from "./LoadingImage";
 import CategoryLink from "./CategoryLink";
 import { useState } from "react";
 import { FaCirclePlus } from "react-icons/fa6";
+import { useData } from "../service/Provider";
 const Posts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState(null);
   const [postsToShow, setPostsToShow] = useState(8);
+
+  const sectionData = useData();
 
   const variants = {
     hidden: { opacity: 0, rotateX: -90 },
@@ -57,14 +60,13 @@ const Posts = () => {
     >
       <div className="container m-auto py-8">
         <TitleWrapper
-          title="Pura+ un mundo de consejos"
-          firstLine="La más grande y actualizada biblioteca on-line de habla hispana: patologias, sintomas, tratamientos, tips, alimentación para una vida saludable y feliz."
-          secondLine="Suscribete a nuestro canal Youtube o siguenos en Instagram para los últimas novedades."
+          title={sectionData?.blogSec[0]?.title_text}
+          firstLine={sectionData?.blogSec[0]?.text_desc}
         />
 
         <div className="category_wrapper mt-8">
           <h2 className="text-[#00359f] text-xl text-center">
-            Escoge un tema de lectura
+            {sectionData?.blogSec[0]?.subtitle_text}
           </h2>
           <CategoryLink
             setFn={setCategory}

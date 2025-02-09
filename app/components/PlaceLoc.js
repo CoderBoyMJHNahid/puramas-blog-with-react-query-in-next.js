@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 import TitleWrapper from "./TitleWrapper";
 import { placeWhere } from "../data/Place";
 import Link from "next/link";
+import IconRenderer from "../utils/IconRenderer";
+import { useData } from "../service/Provider";
 
 const PlaceLoc = () => {
   const fadeInVariants = {
     hidden: { opacity: 0, y: 150 },
     visible: { opacity: 1, y: 0 },
   };
+
+  const data = useData()
 
   return (
     <section className="py-8 bg-gray-100">
@@ -23,15 +27,14 @@ const PlaceLoc = () => {
           variants={fadeInVariants}
         >
           <TitleWrapper
-            title={`Donde Comprar`}
-            firstLine={`Puedes comprar Pura+ en 9 paises diferentes, en más de 1,000 tiendas fisicas o conseguirnos on-line con despacho garantizado.`}
-            secondLine={`Haz click en tu tienda preferida y disfruta de nuestros productos:`}
+            title={data?.shopSec[0]?.title_text}
+            firstLine={data?.shopSec[0]?.text_desc}
           />
         </motion.div>
 
         {/* Place Cards Animation */}
         <div className="grid gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 mt-6">
-          {placeWhere.map((elem, index) => (
+          {data?.shopSecIcon?.map((elem, index) => (
             <motion.div
               key={index}
               initial="hidden"
@@ -46,12 +49,12 @@ const PlaceLoc = () => {
               className="text-center"
             >
               <div className="bg-[#00359f] shadow-xl m-auto mb-4 rounded-full w-[80px] h-[80px] flex items-center justify-center text-5xl text-white hover:bg-[#ffd966] transition-all duration-75">
-                <Link href={elem.link} target="_blank">
-                  {elem.icon}
+                <Link href={elem.icon_link} target="_blank">
+                  <IconRenderer iconName={elem.icon_name} size={40}/> 
                 </Link>
               </div>
-              <p className="font-medium">{elem.name}</p>
-              <p className="text-sm">{elem.desc}</p>
+              <p className="font-medium">{elem.icon_title}</p>
+              <p className="text-sm">{elem.icon_desc}</p>
             </motion.div>
           ))}
         </div>

@@ -1,7 +1,7 @@
 const TitleWrapper = ({ title, firstLine, secondLine,thirdLine }) => {
   const renderText = (text) => {
     if (!text) return null;
-    return text.split(/<br\s*\/?>/).map((line, index) => (
+    return text.split(/<br\s*\/?>|\n/).map((line, index) => (
       <p key={index} className="text-[#575757] font-light text-sm">
         {line}
       </p>

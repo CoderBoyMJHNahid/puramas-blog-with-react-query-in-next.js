@@ -1,11 +1,12 @@
 import React from "react";
+import IconRenderer from "../utils/IconRenderer";
 
 const GroupCard = ({ icon, text, desc }) => {
   return (
     <>
       <div className="flex items-center gap-8 lg:pl-10">
         <div className="bg-black text-white rounded-lg p-2 text-3xl">
-          {icon}
+          <IconRenderer iconName={icon} size={30} />
         </div>
         <div>
           <h3 className="font-bold text-sm ">{text}</h3>

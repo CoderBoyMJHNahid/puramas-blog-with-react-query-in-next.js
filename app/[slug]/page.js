@@ -151,7 +151,7 @@ const Page = () => {
                         </Link>
                       </div>
 
-                      <div className="relative_category_wrapper my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                      <div className="relative_category_wrapper gap-10 my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         {relatedPosts.length > 0 &&
                           relatedPosts.map((postCat, index) => {
                             return (

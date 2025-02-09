@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import TitleWrapper from "./TitleWrapper";
 import { GroupData } from "../data/GroupData";
 import GroupCard from "./GroupCard";
+import { useData } from "../service/Provider";
 
 const GroupWrapper = () => {
   const fadeInVariants = {
     hidden: { opacity: 0, y: 150 },
     visible: { opacity: 1, y: 0 },
   };
+  const data = useData()
 
   return (
     <section className="py-8" id="empresa">
@@ -23,10 +25,8 @@ const GroupWrapper = () => {
           variants={fadeInVariants}
         >
           <TitleWrapper
-            title={`Avimex Fashion & Health Group`}
-            firstLine={`La marca Pura+ pertenece al grupo empresarial italiano Avimex Fashion & Health Group.`}
-            secondLine={`Es actualmente líder en 4 categorias gracias a sus productos de altisima calidad y extraordinaria ecuación de valor.`}
-            thirdLine={`Todos productos gozan de nuestro compromiso satisfecho o rembolsado al 100%.`}
+            title={data?.companySec[0]?.title_text}
+            firstLine={data?.companySec[0]?.text_desc}
           />
         </motion.div>
 
@@ -39,16 +39,16 @@ const GroupWrapper = () => {
           transition={{ staggerChildren: 0.2 }} // Stagger children animations
           variants={fadeInVariants}
         >
-          {GroupData.map((elem, index) => (
+          {data?.companyIcon?.map((elem, index) => (
             <motion.div
               key={index}
               variants={fadeInVariants}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <GroupCard
-                icon={elem.icon}
-                text={elem.text}
-                desc={elem.desc}
+                icon={elem.icon_name}
+                text={elem.icon_title}
+                desc={elem.icon_desc}
               />
             </motion.div>
           ))}
