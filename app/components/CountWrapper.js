@@ -1,12 +1,15 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useData } from "../service/Provider";
 
 const CountWrapper = () => {
   const containerVariants = {
     hidden: { opacity: 0, y: 150 },
     visible: { opacity: 1, y: 0 },
   };
+
+  const data = useData();
 
   return (
     <motion.section
@@ -21,19 +24,19 @@ const CountWrapper = () => {
       <div className="container m-auto">
         <div className="grid gap-5 py-14 text-white text-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="text-5xl font-bold mb-2">4,593,000</p>
+            <p className="text-5xl font-bold mb-2">{data?.statics[0]?.click_blog.toLocaleString()}</p>
             <p className="uppercase mb-0">Clicks en Blog</p>
           </div>
           <div>
-            <p className="text-5xl font-bold mb-2">928,000</p>
+            <p className="text-5xl font-bold mb-2">{data?.statics[0]?.con_fe.toLocaleString()}</p>
             <p className="uppercase mb-0">Consumidores Felices</p>
           </div>
           <div>
-            <p className="text-5xl font-bold mb-2">1,120</p>
+            <p className="text-5xl font-bold mb-2">{data?.statics[0]?.tiendas.toLocaleString()}</p>
             <p className="uppercase mb-0">Tiendas</p>
           </div>
           <div>
-            <p className="text-5xl font-bold mb-2">623,000</p>
+            <p className="text-5xl font-bold mb-2">{data?.statics[0]?.followers.toLocaleString()}</p>
             <p className="uppercase mb-0">Followers</p>
           </div>
         </div>

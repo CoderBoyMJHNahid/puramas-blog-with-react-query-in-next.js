@@ -23,7 +23,7 @@ const PromoCard = ({ number, image, link }) => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <Image
-        src={image}
+        src={`${process.env.NEXT_PUBLIC_POST_URL}/api/uploads/${image}`}
         width={270}
         height={333}
         alt="Card Image"

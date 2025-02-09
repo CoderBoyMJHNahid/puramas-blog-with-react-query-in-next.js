@@ -6,15 +6,16 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
+import { useData } from "../service/Provider";
 
 const Slider = () => {
+  const data = useData();
   return (
     <section className="pt-5 pb-8">
       <div className="container m-auto">
         <TitleWrapper
-          title={`Escoge tu producto por patologia o parte de cuerpo`}
-          firstLine={`Nada compara con los productos y el catalogo Pura+`}
-          secondLine={`Productos a alto impacto ergonómico, funcional y de satisfacción.`}
+          title={data?.categorySec[0]?.title_text}
+          firstLine={data?.categorySec[0]?.desc_text}
         />
 
         <div className="slider_wrapper mt-8">
@@ -39,118 +40,24 @@ const Slider = () => {
               },
             }}
           >
-            <SwiperSlide>
-              <Link
-                target="_blank"
-                href={`https://www.ventas.puramas.co/category.php?c_id=5`}
-              >
-                <Image
-                  src={`/p-pie.webp`}
-                  width={264}
-                  height={325}
-                  className="m-auto"
-                  alt="slide image"
-                />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link
-                target="_blank"
-                href={`https://www.ventas.puramas.co/search.php?search_query=cuello`}
-              >
-                <Image
-                  src={`/p-cabeza.webp`}
-                  width={264}
-                  height={325}
-                  className="m-auto"
-                  alt="slide image"
-                />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link
-                target="_blank"
-                href={`https://www.ventas.puramas.co/search.php?search_query=codo`}
-              >
-                <Image
-                  src={`/p-codo.webp`}
-                  width={264}
-                  height={325}
-                  className="m-auto"
-                  alt="slide image"
-                />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link
-                target="_blank"
-                href={`https://www.ventas.puramas.co/search.php?search_query=cuello`}
-              >
-                <Image
-                  src={`/p-cuello.webp`}
-                  width={264}
-                  height={325}
-                  className="m-auto"
-                  alt="slide image"
-                />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link
-                target="_blank"
-                href={`https://www.ventas.puramas.co/category.php?c_id=9`}
-              >
-                <Image
-                  src={`/p-mano.webp`}
-                  width={264}
-                  height={325}
-                  className="m-auto"
-                  alt="slide image"
-                />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link
-                target="_blank"
-                href={`https://www.ventas.puramas.co/search.php?search_query=postura`}
-              >
-                <Image
-                  src={`/p-postura.webp`}
-                  width={264}
-                  height={325}
-                  className="m-auto"
-                  alt="slide image"
-                />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link
-                target="_blank"
-                href={`https://www.ventas.puramas.co/category.php?c_id=10`}
-              >
-                <Image
-                  src={`/p-rodilla.webp`}
-                  width={264}
-                  height={325}
-                  className="m-auto"
-                  alt="slide image"
-                />
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link
-                target="_blank"
-                href={`https://www.ventas.puramas.co/category.php?c_id=21`}
-              >
-                <Image
-                  src={`/p-talon.webp`}
-                  width={264}
-                  height={325}
-                  className="m-auto"
-                  alt="slide image"
-                />
-              </Link>
-            </SwiperSlide>
+            {data?.categoryImg?.map((elem) => {
+              return (
+                <SwiperSlide key={elem.ci_id}>
+                  <Link
+                    target="_blank"
+                    href={elem.c_link}
+                  >
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_POST_URL}/api/uploads/${elem.c_img}`}
+                      width={264}
+                      height={325}
+                      className="m-auto"
+                      alt="slide image"
+                    />
+                  </Link>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </div>

@@ -13,6 +13,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
+import { useData } from "../service/Provider";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,6 +22,8 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const { slug } = useParams();
+
+  const data = useData();
 
   const checkWindowSize = () => {
     setIsMobile(window.innerWidth < 991);
@@ -58,7 +61,7 @@ const Header = () => {
           <div className="logo_wrapper w-5/6 lg:w-1/6">
             <Link href="/">
               <Image
-                src={`/logo-portada.png`}
+                src={`${process.env.NEXT_PUBLIC_POST_URL}/api/uploads/${data?.logo[0].site_logo}`}
                 width={150}
                 height={45}
                 alt="Logo Image"
@@ -82,7 +85,23 @@ const Header = () => {
                 slug && !isScrolled ? "text-[#777]" : "text-white"
               }  font-bold justify-end gap-9`}
             >
-              {slug ? (
+              {data?.menuItems?.map((elem) => {
+                return (
+                  <li key={elem.me_id}>
+                    <Link
+                      className="hover:text-[#ffd966] duration-100"
+                      href={elem.menu_link}
+                    >
+                      {elem.menu_name}
+                    </Link>
+                  </li>
+                );
+              })}
+              <li>
+                <DropDownFlag />
+              </li>
+
+              {/* {slug ? (
                 <li>
                   <Link
                     className="hover:text-[#ffd966] duration-100"
@@ -154,7 +173,7 @@ const Header = () => {
                     <DropDownFlag />
                   </li>
                 </>
-              )}
+              )} */}
             </ul>
           </div>
         </div>

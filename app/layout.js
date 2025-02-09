@@ -27,21 +27,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <Provider>
-      <html lang="es">
-        <head>
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.jpg"
-          />
-        </head>
-        <body
-          className={`${montserratSans.variable} ${montserratMono.variable} antialiased`}
-        >
-          {children}
-        </body>
-      </html>
-    </Provider>
+    <html lang="es">
+      <head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.jpg"
+        />
+      </head>
+      <body
+        className={`${montserratSans.variable} ${montserratMono.variable} antialiased`}
+      >
+        <Provider>{children}</Provider>
+      </body>
+    </html>
   );
 }

@@ -17,6 +17,8 @@ import Image from "next/image";
 import { extractImage } from "../utils/ExtractImg";
 import LeftSideBar from "../components/LeftSideBar";
 import AllPosts from "../components/AllPosts";
+import Provider from "../service/Provider";
+
 
 const Page = () => {
   const { slug } = useParams();
@@ -71,7 +73,7 @@ const Page = () => {
   );
 
   return (
-    <>
+    <Provider>
       <main>
         <Header />
         <section className="pt-24 pb-10">
@@ -205,7 +207,7 @@ const Page = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </Provider>
   );
 };
 
