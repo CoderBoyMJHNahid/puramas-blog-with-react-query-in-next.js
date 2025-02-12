@@ -27,7 +27,6 @@ const DataProvider = ({ children }) => {
     queryKey: ["mainDetails"],
     queryFn: fetchData,
   });
-  console.log("🚀 ~ DataProvider ~ data:", data)
 
   if (isLoading) return <LoadingImage /> 
   if (error) return <Error/>; 

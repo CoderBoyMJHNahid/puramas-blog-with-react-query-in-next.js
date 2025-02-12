@@ -17,6 +17,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "api.avexim.com",
+      },
+      {
+        protocol: "https",
         hostname: "puramas.avexim.com",
       },
       {
